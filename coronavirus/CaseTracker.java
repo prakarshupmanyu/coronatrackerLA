@@ -55,7 +55,7 @@ public class CaseTracker {
 	public static void main(String[] args) {		
 		CaseTracker tracker = new CaseTracker();
 		//System.out.print(Integer.MAX_VALUE);
-		int numDaysForAverage = 1;
+		int numDaysForAverage = 7;
 		tracker.trackUSCases(numDaysForAverage);
 		tracker.trackUSDeaths(numDaysForAverage);
 		tracker.trackCaliforniaCases(numDaysForAverage);
