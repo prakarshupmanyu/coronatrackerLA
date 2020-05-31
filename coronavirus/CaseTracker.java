@@ -2,55 +2,64 @@ package coronavirus;
 
 public class CaseTracker {
 	
-	private void printDayWiseDiff(int[] dayWiseCounts) {
+	private void printDaysAverage(int[] dayWiseCounts, int daysForAverage) {
+		int increaseSum = 0;
 		int yesterdayCount = dayWiseCounts[0];
-		for (int day = 1; day < dayWiseCounts.length; day++) {
-			int todayCount = dayWiseCounts[day];
-			int increase = todayCount - yesterdayCount;
-			System.out.println("Day " + day + "\t :: " + increase);
-			yesterdayCount = todayCount;
+		int windowStartIdx = 0;
+		for (int i = 1; i < dayWiseCounts.length; i++) {
+			int increase = dayWiseCounts[i] - yesterdayCount;
+			increaseSum += increase;
+			if (i < daysForAverage) {
+				yesterdayCount = dayWiseCounts[i];
+				continue;
+			}
+			int avg = (int) increaseSum / daysForAverage;
+			System.out.println("Day " + (i - daysForAverage + 1) + "\t :: " + avg);
+			increaseSum -= (dayWiseCounts[windowStartIdx + 1] - dayWiseCounts[windowStartIdx]);
+			windowStartIdx++;
+			yesterdayCount = dayWiseCounts[i];
 		}
 		System.out.println();
 	}
 	
-	private void trackUSCases() {
+	private void trackUSCases(int numDays) {
 		System.out.println("Number of US CASES increase by day:");
-		printDayWiseDiff(NumberOfCases.US_CASES);
+		printDaysAverage(NumberOfCases.US_CASES, numDays);
 	}
 	
-	private void trackUSDeaths() {
+	private void trackUSDeaths(int numDays) {
 		System.out.println("Number of US DEATHS increase by day:");
-		printDayWiseDiff(NumberOfCases.US_DEATHS);
+		printDaysAverage(NumberOfCases.US_DEATHS, numDays);
 	}
 	
-	private void trackCaliforniaCases() {
+	private void trackCaliforniaCases(int numDays) {
 		System.out.println("Number of CALIFORNIA CASES increase by day:");
-		printDayWiseDiff(NumberOfCases.CALIFORNIA_CASES);
+		printDaysAverage(NumberOfCases.CALIFORNIA_CASES, numDays);
 	}
 	
-	private void trackCaliforniaDeaths() {
+	private void trackCaliforniaDeaths(int numDays) {
 		System.out.println("Number of CALIFORNIA DEATHS increase by day:");
-		printDayWiseDiff(NumberOfCases.CALIFORNIA_DEATHS);
+		printDaysAverage(NumberOfCases.CALIFORNIA_DEATHS, numDays);
 	}
 	
-	private void trackLACases() {
+	private void trackLACases(int numDays) {
 		System.out.println("Number of LOS ANGELES CASES increase by day:");
-		printDayWiseDiff(NumberOfCases.LA_CASES);
+		printDaysAverage(NumberOfCases.LA_CASES, numDays);
 	}
 	
-	private void trackLADeaths() {
+	private void trackLADeaths(int numDays) {
 		System.out.println("Number of LOS ANGELES DEATHS increase by day:");
-		printDayWiseDiff(NumberOfCases.LA_DEATHS);
+		printDaysAverage(NumberOfCases.LA_DEATHS, numDays);
 	}
 	
 	public static void main(String[] args) {		
 		CaseTracker tracker = new CaseTracker();
 		//System.out.print(Integer.MAX_VALUE);
-		tracker.trackUSCases();
-		tracker.trackUSDeaths();
-		tracker.trackCaliforniaCases();
-		tracker.trackCaliforniaDeaths();
-		tracker.trackLACases();
-		tracker.trackLADeaths();
+		tracker.trackUSCases(1);
+		tracker.trackUSDeaths(1);
+		tracker.trackCaliforniaCases(1);
+		tracker.trackCaliforniaDeaths(1);
+		tracker.trackLACases(1);
+		tracker.trackLADeaths(1);
 	}
 }
