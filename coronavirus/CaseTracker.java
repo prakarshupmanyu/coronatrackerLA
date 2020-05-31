@@ -23,43 +23,44 @@ public class CaseTracker {
 	}
 	
 	private void trackUSCases(int numDays) {
-		System.out.println("Number of US CASES increase by day:");
+		System.out.println("US CASES - AVERAGE increase in " + numDays + " days:");
 		printDaysAverage(NumberOfCases.US_CASES, numDays);
 	}
 	
 	private void trackUSDeaths(int numDays) {
-		System.out.println("Number of US DEATHS increase by day:");
+		System.out.println("US DEATHS - AVERAGE increase in " + numDays + " days:");
 		printDaysAverage(NumberOfCases.US_DEATHS, numDays);
 	}
 	
 	private void trackCaliforniaCases(int numDays) {
-		System.out.println("Number of CALIFORNIA CASES increase by day:");
+		System.out.println("CALIFORNIA CASES - AVERAGE increase in " + numDays + " days:");
 		printDaysAverage(NumberOfCases.CALIFORNIA_CASES, numDays);
 	}
 	
 	private void trackCaliforniaDeaths(int numDays) {
-		System.out.println("Number of CALIFORNIA DEATHS increase by day:");
+		System.out.println("CALIFORNIA DEATHS - AVERAGE increase in " + numDays + " days:");
 		printDaysAverage(NumberOfCases.CALIFORNIA_DEATHS, numDays);
 	}
 	
 	private void trackLACases(int numDays) {
-		System.out.println("Number of LOS ANGELES CASES increase by day:");
+		System.out.println("LOS ANGELES CASES - AVERAGE increase in " + numDays + " days:");
 		printDaysAverage(NumberOfCases.LA_CASES, numDays);
 	}
 	
 	private void trackLADeaths(int numDays) {
-		System.out.println("Number of LOS ANGELES DEATHS increase by day:");
+		System.out.println("LOS ANGELES DEATHS - AVERAGE increase in " + numDays + " days:");
 		printDaysAverage(NumberOfCases.LA_DEATHS, numDays);
 	}
 	
 	public static void main(String[] args) {		
 		CaseTracker tracker = new CaseTracker();
 		//System.out.print(Integer.MAX_VALUE);
-		tracker.trackUSCases(1);
-		tracker.trackUSDeaths(1);
-		tracker.trackCaliforniaCases(1);
-		tracker.trackCaliforniaDeaths(1);
-		tracker.trackLACases(1);
-		tracker.trackLADeaths(1);
+		int numDaysForAverage = 1;
+		tracker.trackUSCases(numDaysForAverage);
+		tracker.trackUSDeaths(numDaysForAverage);
+		tracker.trackCaliforniaCases(numDaysForAverage);
+		tracker.trackCaliforniaDeaths(numDaysForAverage);
+		tracker.trackLACases(numDaysForAverage);
+		tracker.trackLADeaths(numDaysForAverage);
 	}
 }
