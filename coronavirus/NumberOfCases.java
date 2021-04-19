@@ -370,7 +370,8 @@ public class NumberOfCases {
             32152620,
             32229561,
             32321809,
-            32365687
+            32365687,
+            32407610
     };
 
     public static final int[] US_DEATHS = new int[]{
@@ -742,7 +743,8 @@ public class NumberOfCases {
             578125,
             579053,
             580114,
-            580808
+            580808,
+            581080
     };
 
     public static final int[] CALIFORNIA_CASES = new int[]{
@@ -1114,7 +1116,8 @@ public class NumberOfCases {
             3685588,
             3688170,
             3691013,
-            3692733
+            3692733,
+            3693956
     };
 
     public static final int[] CALIFORNIA_DEATHS = new int[]{
@@ -1486,7 +1489,8 @@ public class NumberOfCases {
             60376,
             60462,
             60576,
-            60650
+            60650,
+            60661
     };
 
     public static final int[] LA_CASES = new int[]{
@@ -1858,7 +1862,8 @@ public class NumberOfCases {
             1227002,
             1227537,
             1228118,
-            1228641
+            1228641,
+            1228997
     };
 
     public static final int[] LA_DEATHS = new int[]{
@@ -2230,6 +2235,7 @@ public class NumberOfCases {
             23554,
             23573,
             23601,
-            23628
+            23628,
+            23623
     };
 }
